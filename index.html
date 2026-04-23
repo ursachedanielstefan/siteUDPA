@@ -7,13 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Tot CSS-ul de mai sus (același ca în codul anterior) */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: #f5f7fb; color: #1a1a2e; line-height: 1.5; overflow-x: hidden; transition: background 0.2s ease, color 0.2s ease; }
         body.high-contrast { background: #000 !important; color: #ff0 !important; }
         body.high-contrast .header, body.high-contrast .main-contact, body.high-contrast .footer { background: #000 !important; border-color: #ff0 !important; }
-        body.high-contrast .hero-announcements, body.high-contrast .gallery-section, body.high-contrast .contact-card, body.high-contrast .page-title, body.high-contrast .info-public { background: #0a0a0a !important; border: 1px solid #ff0 !important; color: #ff0 !important; }
-        body.high-contrast .announcement-item, body.high-contrast .gallery-item { background: #111 !important; border: 1px solid #ff0 !important; }
+        body.high-contrast .hero-announcements, body.high-contrast .gallery-section, body.high-contrast .contact-card, body.high-contrast .page-title, body.high-contrast .info-public,
+        body.high-contrast .documents-section { background: #0a0a0a !important; border: 1px solid #ff0 !important; color: #ff0 !important; }
+        body.high-contrast .announcement-item, body.high-contrast .gallery-item, body.high-contrast .document-card { background: #111 !important; border: 1px solid #ff0 !important; }
         body.high-contrast .announcement-item strong, body.high-contrast .contact-card h3, body.high-contrast .section-title { color: #ff0 !important; }
         body.high-contrast .accessibility-btn, body.high-contrast .accessibility-panel { background: #000 !important; border: 2px solid #ff0 !important; color: #ff0 !important; }
         body.grayscale #page-content { filter: grayscale(100%); }
@@ -33,7 +33,7 @@
         .orb-5 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(245,158,11,0.2), transparent); top: 15%; right: 15%; animation-duration: 28s; animation-delay: -7s; }
         .orb-6 { width: 450px; height: 450px; background: radial-gradient(circle, rgba(99,102,241,0.3), transparent); top: 60%; left: 40%; animation-duration: 30s; animation-delay: -12s; }
         @keyframes floatOrb { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(30px,-40px) scale(1.05); } 66% { transform: translate(-20px,30px) scale(0.95); } }
-        .particle { position: absolute; background: rgba(59,130,246,0.2); border-radius: 50%; pointer-events: none; animation: floatParticle 15s infinite; }
+        .particle { position: absolute; background: rgba(59,130,246,0.2); border-radius: 50%; animation: floatParticle 15s infinite; }
         @keyframes floatParticle { 0%,100% { transform: translateY(0) translateX(0); opacity: 0; } 15%,85% { opacity: 0.5; } 100% { transform: translateY(-120px) translateX(50px); opacity: 0; } }
         .wave-line { position: absolute; bottom: 0; left: 0; width: 100%; height: 200px; background: repeating-linear-gradient(transparent, transparent 98px, rgba(59,130,246,0.08) 98px, rgba(59,130,246,0.08) 100px); animation: waveMove 10s linear infinite; }
         @keyframes waveMove { 0% { background-position: 0 0; } 100% { background-position: 0 100px; } }
@@ -64,6 +64,7 @@
         .accessibility-panel.active { transform: translateY(0) scale(1); opacity: 1; visibility: visible; }
         .panel-header { background: linear-gradient(135deg, #0a2463, #1e3a8a); color: white; padding: 20px; text-align: center; }
         .panel-header h3 { font-size: 1.2rem; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .panel-header p { font-size: 0.75rem; opacity: 0.8; margin-top: 5px; }
         .panel-content { padding: 20px; max-height: 500px; overflow-y: auto; }
         .accessibility-group { margin-bottom: 20px; }
         .group-title { font-size: 0.75rem; text-transform: uppercase; color: #6b7280; margin-bottom: 12px; font-weight: 600; }
@@ -201,4 +202,422 @@
 
 <div id="page-content">
     <header class="header">
-        <
+        <div class="container header-inner">
+            <div class="logo">
+                <h1>🎓 <span data-key="school_name_line1">Colegiul Național</span><br><span data-key="school_name_line2">„Nicolae Bălcescu” Brăila</span></h1>
+                <p data-key="school_motto">Excelență în educație din 1863</p>
+            </div>
+            <div class="update-date"><i class="fas fa-calendar-alt"></i> <span data-key="last_update">Ultima actualizare</span>: 19 martie 2026</div>
+        </div>
+    </header>
+
+    <div class="nav-container">
+        <div class="container nav">
+            <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a data-page="home"><span data-key="nav_about">DESPRE NOI</span></a></li>
+                <li><a data-page="home"><span data-key="nav_staff">PERSONAL</span></a></li>
+                <li><a data-page="home"><span data-key="nav_students">ELEVI</span></a></li>
+                <li><a data-page="home"><span data-key="nav_results">REZULTATE</span></a></li>
+                <li><a data-page="home"><span data-key="nav_partners">PARTENERIATE</span></a></li>
+                <li><a data-page="home"><span data-key="nav_legislation">LEGISLAŢIE</span></a></li>
+                <li><a data-page="home"><span data-key="nav_events">EVENIMENTE</span></a></li>
+                <li><a data-page="home"><span data-key="nav_gallery">GALERIE</span></a></li>
+                <li><a data-page="contact" id="contactNavLink"><span data-key="nav_contact">CONTACT</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="container">
+        <div id="homePage" class="page active-page">
+            <div class="hero-announcements">
+                <div class="section-title"><i class="fas fa-bullhorn"></i><span data-key="announcements_title">Anunțuri și evenimente</span></div>
+                <div class="announcements-list" id="announcementsList"></div>
+                <div style="text-align: center;"><a href="#" class="btn-more"><span data-key="all_announcements">Toate anunțurile</span> <i class="fas fa-arrow-right"></i></a></div>
+            </div>
+            <div class="gallery-section">
+                <div class="section-title"><i class="fas fa-medal"></i><span data-key="diplomas_title">Diplome și distincții</span></div>
+                <div class="gallery-grid" id="galleryGrid"></div>
+                <div style="text-align: center;"><a href="#" class="btn-more"><span data-key="view_all_gallery">Vezi toată galeria</span> <i class="fas fa-arrow-right"></i></a></div>
+            </div>
+            <div class="documents-section">
+                <div class="section-title"><i class="fas fa-file-pdf"></i><span data-key="documents_title">Documente oficiale</span></div>
+                <div class="documents-grid" id="documentsGrid"></div>
+            </div>
+        </div>
+
+        <div id="contactPage" class="page">
+            <div class="page-title"><h1 data-key="contact_title">Contact</h1><p data-key="contact_subtitle">Date de contact și informații utile</p></div>
+            <div class="main-contact">
+                <h2><i class="fas fa-building"></i> <span data-key="general_contact">Date de contact generale</span></h2>
+                <div class="main-contact-details">
+                    <div class="main-contact-item"><i class="fas fa-map-marker-alt"></i><div><div class="label" data-key="address_label">ADRESĂ</div><div class="value" data-key="address_value">B-dul Alexandru Ioan Cuza Nr. 182, Brăila</div><div class="value" data-key="postal_code">Cod Poștal: 810125</div></div></div>
+                    <div class="main-contact-item"><i class="fas fa-phone-alt"></i><div><div class="label" data-key="phone_label">TELEFON / FAX</div><div class="value">0239 615 333</div></div></div>
+                    <div class="main-contact-item"><i class="fas fa-envelope"></i><div><div class="label" data-key="email_director_label">EMAIL DIRECTOR</div><div class="value"><a href="mailto:director@cnnb.ro" style="color: white !important;">director@cnnb.ro</a></div></div></div>
+                </div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card"><h3><i class="fas fa-clock"></i> <span data-key="secretariat_title">Secretariat</span></h3>
+                    <ul class="contact-info"><li><i class="fas fa-phone"></i> 0239 615 333</li><li><i class="fas fa-envelope"></i> <a href="mailto:secretariat@cnnb.ro">secretariat@cnnb.ro</a></li><li><i class="fas fa-calendar-week"></i> <span data-key="schedule_label">Program de lucru</span>:</li></ul>
+                    <table class="schedule-table"><tr><td data-key="day_mon">LUNI</td><td>7:30 - 16:00</td></tr>
+                        <tr><td data-key="day_tue">MARȚI</td><td>7:30 - 18:00</td></tr>
+                        <tr><td data-key="day_wed">MIERCURI</td><td>7:30 - 16:00</td></tr>
+                        <tr><td data-key="day_thu">JOI</td><td>7:30 - 18:00</td></tr>
+                        <tr><td data-key="day_fri">VINERI</td><td>8:00 - 14:00</td></tr>
+                    </table>
+                </div>
+                <div class="contact-card"><h3><i class="fas fa-calculator"></i> <span data-key="accounting_title">Contabilitate</span></h3>
+                    <ul class="contact-info"><li><i class="fas fa-phone"></i> 0239 615 345</li><li><i class="fas fa-envelope"></i> <a href="mailto:contabilitate@cnnb.ro">contabilitate@cnnb.ro</a></li></ul>
+                </div>
+                <div class="contact-card"><h3><i class="fas fa-laptop-code"></i> <span data-key="it_title">Informatică</span></h3>
+                    <ul class="contact-info"><li><i class="fas fa-envelope"></i> <a href="mailto:informatica@cnnb.ro">informatica@cnnb.ro</a></li><li><i class="fas fa-globe"></i> <span data-key="it_desc">Sesizări și suport site CNNB</span></li></ul>
+                </div>
+                <div class="contact-card"><h3><i class="fas fa-archive"></i> <span data-key="heritage_title">Patrimoniu</span></h3>
+                    <ul class="contact-info"><li><i class="fas fa-envelope"></i> <a href="mailto:patrimoniu@cnnb.ro">patrimoniu@cnnb.ro</a></li></ul>
+                </div>
+            </div>
+            <div class="info-public"><h4><i class="fas fa-info-circle"></i> <span data-key="public_info_title">Informații de interes public</span></h4>
+                <p><strong data-key="contact_persons_label">Persoane de contact:</strong> <span data-key="contact_persons">Todiraș Paula, Ioniță Valerica</span></p>
+                <p><strong>Email:</strong> <a href="mailto:secretariat@cnnb.ro">secretariat@cnnb.ro</a></p>
+                <p style="margin-top: 8px;" data-key="public_info_desc">Pentru solicitarea informațiilor de interes public, vă rugăm să utilizați adresa de email a secretariatului.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-info"><h3 data-key="footer_title">Colegiul Național "Nicolae Bălcescu"</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-key="footer_address">B-dul Alexandru Ioan Cuza Nr. 182, Brăila</span></p>
+                    <p><i class="fas fa-envelope"></i> director@cnnb.ro</p>
+                    <p><i class="fas fa-phone"></i> 0239 615 333</p>
+                </div>
+                <div class="footer-links">
+                    <div><a data-page="home"><span data-key="footer_home">Acasă</span></a><br><a data-page="contact"><span data-key="footer_contact">Contact</span></a><br><a data-page="home"><span data-key="footer_legislation">Legislație</span></a></div>
+                    <div><a data-page="home"><span data-key="footer_partners">Parteneriate</span></a><br><a data-page="home"><span data-key="footer_events">Evenimente</span></a><br><a data-page="home"><span data-key="footer_gallery">Galerie</span></a></div>
+                </div>
+            </div>
+            <div class="copyright">© 2026 <span data-key="copyright_name">Colegiul Național "Nicolae Bălcescu" Brăila</span>. <span data-key="copyright_rights">Toate drepturile rezervate.</span></div>
+        </div>
+    </footer>
+</div>
+
+<div id="galleryModal" class="modal"><span class="modal-close">&times;</span><div class="modal-img" id="modalImage"></div><div class="modal-caption" id="modalCaption"></div></div>
+
+<script>
+    // Traduceri (toate limbile)
+    const translations = {
+        ro: {
+            accessibility_title: "Accesibilitate", accessibility_subtitle: "Personalizați experiența de vizualizare", language_title: "Limbă",
+            view_title: "Vizualizare", reading_title: "Citire", reset_title: "Resetare",
+            high_contrast: "Contrast ridicat", grayscale: "Tonuri gri", large_text: "Text mărit", readable_font: "Font lizibil",
+            line_height: "Spațiere rânduri", letter_spacing: "Spațiere litere", large_cursor: "Cursor mare", reduced_motion: "Mișcare redusă",
+            reset_button: "Resetează toate setările", school_name_line1: "Colegiul Național", school_name_line2: "„Nicolae Bălcescu” Brăila",
+            school_motto: "Excelență în educație din 1863", last_update: "Ultima actualizare",
+            nav_about: "DESPRE NOI", nav_staff: "PERSONAL", nav_students: "ELEVI", nav_results: "REZULTATE", nav_partners: "PARTENERIATE",
+            nav_legislation: "LEGISLAŢIE", nav_events: "EVENIMENTE", nav_gallery: "GALERIE", nav_contact: "CONTACT",
+            announcements_title: "Anunțuri și evenimente", all_announcements: "Toate anunțurile", diplomas_title: "Diplome și distincții",
+            view_all_gallery: "Vezi toată galeria", documents_title: "Documente oficiale",
+            contact_title: "Contact", contact_subtitle: "Date de contact și informații utile", general_contact: "Date de contact generale",
+            address_label: "ADRESĂ", address_value: "B-dul Alexandru Ioan Cuza Nr. 182, Brăila", postal_code: "Cod Poștal: 810125",
+            phone_label: "TELEFON / FAX", email_director_label: "EMAIL DIRECTOR", secretariat_title: "Secretariat", schedule_label: "Program de lucru",
+            day_mon: "LUNI", day_tue: "MARȚI", day_wed: "MIERCURI", day_thu: "JOI", day_fri: "VINERI",
+            accounting_title: "Contabilitate", it_title: "Informatică", it_desc: "Sesizări și suport site CNNB", heritage_title: "Patrimoniu",
+            public_info_title: "Informații de interes public", contact_persons_label: "Persoane de contact", contact_persons: "Todiraș Paula, Ioniță Valerica",
+            public_info_desc: "Pentru solicitarea informațiilor de interes public, vă rugăm să utilizați adresa de email a secretariatului.",
+            footer_title: "Colegiul Național \"Nicolae Bălcescu\"", footer_address: "B-dul Alexandru Ioan Cuza Nr. 182, Brăila",
+            footer_home: "Acasă", footer_contact: "Contact", footer_legislation: "Legislație", footer_partners: "Parteneriate",
+            footer_events: "Evenimente", footer_gallery: "Galerie", copyright_name: "Colegiul Național \"Nicolae Bălcescu\" Brăila",
+            copyright_rights: "Toate drepturile rezervate.",
+            announcements: [
+                { title: "📢 SIMULARE EXAMEN BACALAUREAT", desc: "Informații și calendar simulare" },
+                { title: "🇩🇪 OLIMPIADA DE LIMBA GERMANĂ - FAZA JUDEȚEANĂ", desc: "Rezultate și program" },
+                { title: "🌍 OLIMPIADA DE GEOGRAFIE - FAZA JUDEȚEANĂ", desc: "Performanțe remarcabile" },
+                { title: "🧪 CONCURSUL DE CHIMIE LAZĂR EDELEANU", desc: "Ediția 2026" },
+                { title: "📜 LISTA UNITĂȚILOR DE ÎNVĂȚĂMÂNT ACREDITATE", desc: "Documente oficiale ISJ Brăila" },
+                { title: "💰 BURSE ȘCOLARE", desc: "Managementul burselor - informații" },
+                { title: "🚌 TRANSPORT GRATUIT PENTRU ELEVI", desc: "Anunț privind acordarea gratuității" }
+            ]
+        },
+        en: {
+            accessibility_title: "Accessibility", accessibility_subtitle: "Customize your viewing experience", language_title: "Language",
+            view_title: "View", reading_title: "Reading", reset_title: "Reset",
+            high_contrast: "High contrast", grayscale: "Grayscale", large_text: "Large text", readable_font: "Readable font",
+            line_height: "Line spacing", letter_spacing: "Letter spacing", large_cursor: "Large cursor", reduced_motion: "Reduced motion",
+            reset_button: "Reset all settings", school_name_line1: "National College", school_name_line2: "„Nicolae Bălcescu” Brăila",
+            school_motto: "Excellence in education since 1863", last_update: "Last update",
+            nav_about: "ABOUT US", nav_staff: "STAFF", nav_students: "STUDENTS", nav_results: "RESULTS", nav_partners: "PARTNERSHIPS",
+            nav_legislation: "LEGISLATION", nav_events: "EVENTS", nav_gallery: "GALLERY", nav_contact: "CONTACT",
+            announcements_title: "Announcements & Events", all_announcements: "All announcements", diplomas_title: "Diplomas & Distinctions",
+            view_all_gallery: "View full gallery", documents_title: "Official documents",
+            contact_title: "Contact", contact_subtitle: "Contact information", general_contact: "General contact",
+            address_label: "ADDRESS", address_value: "Alexandru Ioan Cuza Blvd. No. 182, Brăila", postal_code: "Postal Code: 810125",
+            phone_label: "PHONE / FAX", email_director_label: "DIRECTOR EMAIL", secretariat_title: "Secretariat", schedule_label: "Working hours",
+            day_mon: "MONDAY", day_tue: "TUESDAY", day_wed: "WEDNESDAY", day_thu: "THURSDAY", day_fri: "FRIDAY",
+            accounting_title: "Accounting", it_title: "IT Department", it_desc: "Website issues and support", heritage_title: "Heritage",
+            public_info_title: "Public interest", contact_persons_label: "Contact persons", contact_persons: "Todiraș Paula, Ioniță Valerica",
+            public_info_desc: "For public interest requests, use the secretariat email.",
+            footer_title: "National College \"Nicolae Bălcescu\"", footer_address: "Alexandru Ioan Cuza Blvd. No. 182, Brăila",
+            footer_home: "Home", footer_contact: "Contact", footer_legislation: "Legislation", footer_partners: "Partnerships",
+            footer_events: "Events", footer_gallery: "Gallery", copyright_name: "National College \"Nicolae Bălcescu\" Brăila",
+            copyright_rights: "All rights reserved.",
+            announcements: [
+                { title: "📢 HIGH SCHOOL GRADUATION MOCK EXAM", desc: "Information and schedule" },
+                { title: "🇩🇪 GERMAN LANGUAGE OLYMPIAD - COUNTY PHASE", desc: "Results and schedule" },
+                { title: "🌍 GEOGRAPHY OLYMPIAD - COUNTY PHASE", desc: "Outstanding performances" },
+                { title: "🧪 LAZĂR EDELEANU CHEMISTRY CONTEST", desc: "2026 Edition" },
+                { title: "📜 LIST OF ACCREDITED EDUCATIONAL UNITS", desc: "Official ISJ Brăila documents" },
+                { title: "💰 SCHOOL SCHOLARSHIPS", desc: "Scholarship management" },
+                { title: "🚌 FREE TRANSPORT FOR STUDENTS", desc: "Free transportation announcement" }
+            ]
+        }
+    };
+    
+    // German
+    translations.de = JSON.parse(JSON.stringify(translations.en));
+    translations.de.accessibility_title = "Barrierefreiheit";
+    translations.de.school_name_line1 = "Nationalkolleg";
+    translations.de.nav_about = "ÜBER UNS";
+    translations.de.nav_staff = "PERSONAL";
+    translations.de.nav_students = "SCHÜLER";
+    translations.de.nav_results = "ERGEBNISSE";
+    translations.de.nav_contact = "KONTAKT";
+    translations.de.all_announcements = "Alle Ankündigungen";
+    
+    // French
+    translations.fr = JSON.parse(JSON.stringify(translations.en));
+    translations.fr.accessibility_title = "Accessibilité";
+    translations.fr.school_name_line1 = "Collège National";
+    translations.fr.nav_about = "À PROPOS";
+    translations.fr.nav_staff = "PERSONNEL";
+    translations.fr.nav_students = "ÉLÈVES";
+    translations.fr.nav_results = "RÉSULTATS";
+    translations.fr.nav_contact = "CONTACT";
+    
+    // Italian
+    translations.it = JSON.parse(JSON.stringify(translations.en));
+    translations.it.accessibility_title = "Accessibilità";
+    translations.it.school_name_line1 = "Collegio Nazionale";
+    translations.it.nav_about = "CHI SIAMO";
+    translations.it.nav_staff = "PERSONALE";
+    translations.it.nav_students = "STUDENTI";
+    translations.it.nav_results = "RISULTATI";
+    translations.it.nav_contact = "CONTATTI";
+    
+    // Spanish
+    translations.es = JSON.parse(JSON.stringify(translations.en));
+    translations.es.accessibility_title = "Accesibilidad";
+    translations.es.school_name_line1 = "Colegio Nacional";
+    translations.es.nav_about = "SOBRE NOSOTROS";
+    translations.es.nav_staff = "PERSONAL";
+    translations.es.nav_students = "ESTUDIANTES";
+    translations.es.nav_results = "RESULTADOS";
+    translations.es.nav_contact = "CONTACTO";
+    
+    // Turkish
+    translations.tr = JSON.parse(JSON.stringify(translations.en));
+    translations.tr.accessibility_title = "Erişilebilirlik";
+    translations.tr.school_name_line1 = "Ulusal Kolej";
+    translations.tr.nav_about = "HAKKIMIZDA";
+    translations.tr.nav_staff = "PERSONEL";
+    translations.tr.nav_students = "ÖĞRENCİLER";
+    translations.tr.nav_results = "SONUÇLAR";
+    translations.tr.nav_contact = "İLETİŞİM";
+    
+    // Arabic
+    translations.ar = JSON.parse(JSON.stringify(translations.en));
+    translations.ar.accessibility_title = "إمكانية الوصول";
+    translations.ar.school_name_line1 = "الكلية الوطنية";
+    translations.ar.nav_about = "معلومات عنا";
+    translations.ar.nav_staff = "الموظفون";
+    translations.ar.nav_students = "الطلاب";
+    translations.ar.nav_results = "النتائج";
+    translations.ar.nav_contact = "اتصل بنا";
+
+    let currentLang = 'ro';
+    
+    function updateLanguage(lang) {
+        currentLang = lang;
+        const t = translations[lang] || translations.ro;
+        document.querySelectorAll('[data-key]').forEach(el => {
+            const key = el.getAttribute('data-key');
+            if (t[key]) el.textContent = t[key];
+        });
+        const announcementsList = document.getElementById('announcementsList');
+        if (announcementsList && t.announcements) {
+            announcementsList.innerHTML = t.announcements.map(a => `<a href="#" class="announcement-item"><strong>${a.title}</strong><span>${a.desc}</span></a>`).join('');
+        }
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('data-lang') === lang) btn.classList.add('active');
+        });
+        localStorage.setItem('preferredLanguage', lang);
+    }
+    
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => updateLanguage(btn.getAttribute('data-lang')));
+    });
+    
+    const savedLang = localStorage.getItem('preferredLanguage');
+    if (savedLang && translations[savedLang]) updateLanguage(savedLang);
+    else updateLanguage('ro');
+    
+    // IMAGINILE - cu numele exacte de pe server
+    const diplomeImages = [
+        { nume: "Teatru francofon 2025", file: "phoca_thumb_l_teatru francofon 2025.jpg" },
+        { nume: "Diploma excelenta premiul 1", file: "phoca_thumb_l_diploma excelenta premiul 1.jpg" },
+        { nume: "Certificat Cambridge 2025", file: "phoca_thumb_l_certif_cambridge_2025.jpg" },
+        { nume: "Diploma teatru - trupe - 2025", file: "phoca_thumb_l_diploma_teatru_2025.jpg" },
+        { nume: "Certificat Cambridge 2024", file: "phoca_thumb_l_certificat cambridge 2024.jpg" },
+        { nume: "Diploma de excelență Minister 2023", file: "phoca_thumb_l_diploma excelenta minister 2023.jpg" },
+        { nume: "Diploma excelenta premiul 2", file: "phoca_thumb_l_diploma excelenta premiul 2.jpg" },
+        { nume: "Diploma de onoare MEN 2018", file: "phoca_thumb_l_diploma_onoare_men_2018.jpg" },
+        { nume: "Diploma Spiru Haret", file: "phoca_thumb_l_spiru haret.jpg" },
+        { nume: "Diploma excelenta premiul 3", file: "phoca_thumb_l_diploma excelenta premiul 3.jpg" },
+        { nume: "Diplomă de excelenţă", file: "phoca_thumb_l_diploma de excelenta.jpg" },
+        { nume: "Diploma Senatului României", file: "phoca_thumb_l_diploma excelenta senat.jpg" },
+        { nume: "Diploma de onoare Politehnica", file: "phoca_thumb_l_diploma de onoare politehnica.jpg" },
+        { nume: "Diploma de excelență Politehnica", file: "phoca_thumb_l_diploma excelenta politehnica.jpg" },
+        { nume: "Diploma de excelenţă CLM", file: "phoca_thumb_l_dip_exc2.jpg" },
+        { nume: "Şcoală europeană", file: "phoca_thumb_l_scoala_europeana.jpg" },
+        { nume: "Excelenţă", file: "phoca_thumb_l_dip_exc.jpg" },
+        { nume: "Diplomă de merit", file: "phoca_thumb_l_dip_merit.jpg" },
+        { nume: "Diploma de excelenţă instituțională", file: "phoca_thumb_l_dip_exc3.jpg" },
+        { nume: "Diploma Baroul Brăila", file: "phoca_thumb_l_diploma_unb.jpg" }
+    ];
+    
+    const documents = [
+        { name: "Anunt transport gratuit 2025-2026", url: "http://www.cnnb.ro/alte/2025/ANUNT_TRANSPORT_RURAL_2025_2026.pdf", icon: "fas fa-bus" },
+        { name: "Regulament intern CNNB", url: "http://www.cnnb.ro/images/regulamente/Regulament_intern_CNNB.pdf", icon: "fas fa-file-alt" },
+        { name: "Plan managerial 2025", url: "http://www.cnnb.ro/images/rapoarte/Plan_managerial_2025.pdf", icon: "fas fa-chart-line" }
+    ];
+    
+    function loadGallery() {
+        const grid = document.getElementById('galleryGrid');
+        if (!grid) return;
+        diplomeImages.forEach(d => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.innerHTML = `<div class="gallery-img" style="background-image:url('images/diplome/${encodeURIComponent(d.file)}'); background-size:cover; background-position:center;"></div><div class="gallery-caption">${d.nume}</div>`;
+            item.addEventListener('click', () => openModal(`images/diplome/${encodeURIComponent(d.file)}`, d.nume));
+            grid.appendChild(item);
+        });
+    }
+    
+    function loadDocuments() {
+        const grid = document.getElementById('documentsGrid');
+        if (!grid) return;
+        documents.forEach(doc => {
+            const a = document.createElement('a');
+            a.href = doc.url;
+            a.target = "_blank";
+            a.className = 'document-card';
+            a.innerHTML = `<i class="${doc.icon}"></i><strong>${doc.name}</strong>`;
+            grid.appendChild(a);
+        });
+    }
+    
+    function openModal(url, nume) {
+        const modalImg = document.getElementById('modalImage');
+        modalImg.style.backgroundImage = `url('${url}')`;
+        modalImg.style.backgroundSize = 'contain';
+        modalImg.style.backgroundRepeat = 'no-repeat';
+        modalImg.style.backgroundPosition = 'center';
+        modalImg.innerHTML = '';
+        document.getElementById('modalCaption').textContent = nume;
+        document.getElementById('galleryModal').classList.add('active');
+    }
+    
+    document.querySelector('.modal-close')?.addEventListener('click', () => document.getElementById('galleryModal').classList.remove('active'));
+    document.getElementById('galleryModal')?.addEventListener('click', (e) => { if (e.target === document.getElementById('galleryModal')) document.getElementById('galleryModal').classList.remove('active'); });
+    
+    // Particule
+    function createParticles() {
+        const bg = document.querySelector('.animated-bg');
+        for (let i = 0; i < 30; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.cssText = `width:${Math.random()*4+2}px;height:${Math.random()*4+2}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*15}s;animation-duration:${Math.random()*10+10}s`;
+            bg.appendChild(p);
+        }
+        for (let i = 0; i < 40; i++) {
+            const t = document.createElement('div');
+            t.className = 'twinkle';
+            t.style.cssText = `width:${Math.random()*2+1}px;height:${Math.random()*2+1}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*4}s;`;
+            bg.appendChild(t);
+        }
+        for (let i = 0; i < 5; i++) {
+            const s = document.createElement('div');
+            s.className = 'shooting-star';
+            s.style.cssText = `top:${Math.random()*100}%;left:${Math.random()*100}%;animation-delay:${Math.random()*8}s;`;
+            bg.appendChild(s);
+        }
+    }
+    
+    // Accesibilitate
+    const btn = document.getElementById('accessibilityBtn');
+    const panel = document.getElementById('accessibilityPanel');
+    const reset = document.getElementById('resetAccessibility');
+    
+    btn?.addEventListener('click', (e) => { e.stopPropagation(); panel.classList.toggle('active'); btn.classList.toggle('active'); });
+    document.addEventListener('click', (e) => { if (!panel?.contains(e.target) && !btn?.contains(e.target)) { panel?.classList.remove('active'); btn?.classList.remove('active'); } });
+    
+    const actions = {
+        'high-contrast': () => { document.body.classList.toggle('high-contrast'); save('high-contrast'); },
+        'grayscale': () => { document.body.classList.toggle('grayscale'); save('grayscale'); },
+        'large-text': () => { document.body.classList.toggle('large-text'); save('large-text'); },
+        'readable-font': () => { document.body.classList.toggle('readable-font'); save('readable-font'); },
+        'increased-line-height': () => { document.body.classList.toggle('increased-line-height'); save('increased-line-height'); },
+        'increased-letter-spacing': () => { document.body.classList.toggle('increased-letter-spacing'); save('increased-letter-spacing'); },
+        'large-cursor': () => { document.body.classList.toggle('large-cursor'); save('large-cursor'); },
+        'reduced-motion': () => { document.body.classList.toggle('reduced-motion'); save('reduced-motion'); }
+    };
+    
+    function save(key) { localStorage.setItem(key, document.body.classList.contains(key)); }
+    function loadSettings() {
+        const settings = ['high-contrast','grayscale','large-text','readable-font','increased-line-height','increased-letter-spacing','large-cursor','reduced-motion'];
+        settings.forEach(s => {
+            if (localStorage.getItem(s) === 'true') { document.body.classList.add(s); document.querySelector(`[data-action="${s}"]`)?.classList.add('active'); }
+        });
+    }
+    
+    document.querySelectorAll('.accessibility-option').forEach(opt => {
+        const action = opt.getAttribute('data-action');
+        if (actions[action]) opt.addEventListener('click', () => { actions[action](); opt.classList.toggle('active'); });
+    });
+    reset?.addEventListener('click', () => {
+        const settings = ['high-contrast','grayscale','large-text','readable-font','increased-line-height','increased-letter-spacing','large-cursor','reduced-motion'];
+        settings.forEach(s => {
+            document.body.classList.remove(s); localStorage.removeItem(s); document.querySelector(`[data-action="${s}"]`)?.classList.remove('active');
+        });
+    });
+    
+    // Navigare pagini
+    const homePage = document.getElementById('homePage');
+    const contactPage = document.getElementById('contactPage');
+    function showPage(page) {
+        homePage.classList.toggle('active-page', page === 'home');
+        contactPage.classList.toggle('active-page', page === 'contact');
+        document.querySelectorAll('.nav-menu li').forEach(li => li.classList.remove('active'));
+        if (page === 'contact') document.querySelector('#contactNavLink')?.parentElement?.classList.add('active');
+        else document.querySelector('.nav-menu li:first-child')?.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    document.querySelectorAll('[data-page]').forEach(link => {
+        link.addEventListener('click', (e) => { e.preventDefault(); showPage(link.getAttribute('data-page')); });
+    });
+    document.querySelector('.nav-menu li:first-child')?.classList.add('active');
+    
+    const toggle = document.getElementById('mobileToggle');
+    const menu = document.getElementById('navMenu');
+    toggle?.addEventListener('click', () => menu?.classList.toggle('active'));
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        loadGallery();
+        loadDocuments();
+        createParticles();
+        loadSettings();
+    });
+</script>
+</body>
+</html>
